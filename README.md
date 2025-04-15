@@ -10,6 +10,21 @@ This project is a portfolio website showcasing a dynamic background animation an
 
 ---
 
+## 📸 Screenshots
+
+#### 💻 Homepage (Light Mode)
+![Homepage Light Mode](screenshots/homepage-light.png)
+
+#### 🌙 Homepage (Dark Mode)
+![Homepage Dark Mode](screenshots/homepage-dark.png)
+
+#### 📄 Resume Section
+![Resume Display](screenshots/resume-section.png)
+
+> To update screenshots, place your images in the `screenshots/` folder and update the file names accordingly.
+
+---
+
 ## Getting Started
 
 Follow these instructions to set up and run the project locally.
