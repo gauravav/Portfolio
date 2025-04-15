@@ -1,0 +1,315 @@
+/* style.css */
+
+/* --- CSS Variables for Theming --- */
+:root {
+    --bg-color: #e8edf2; /* Default light theme background */
+    --content-bg-color: rgba(255, 255, 255, 0.85); /* Semi-transparent card */
+    --content-bg-color-opaque: #ffffff;          /* Opaque card background */
+    --text-color: #333;
+    --heading-color: #444;
+    --link-color: #1976D2;
+    --border-color: #eee;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --menu-bg: #f8f9fa;
+    --menu-text: #333;
+    --menu-hover-bg: #e9ecef;
+    --menu-icon-color: #555;
+    --header-bg: #fff;
+    --header-text: #333;
+    --button-bg: #f0f0f0;
+    --button-hover-bg: #e0e0e0;
+    --grid-dot-color: #6a7e99;
+    --grid-line-color: #9cb2cc;
+    --date-text-color: #666;
+}
+
+body.dark-theme {
+    --bg-color: #121212; /* Dark theme background */
+    --content-bg-color: rgba(30, 30, 30, 0.85);  /* Semi-transparent dark card */
+    --content-bg-color-opaque: #1e1e1e;         /* Opaque dark card background */
+    --text-color: #e0e0e0;
+    --heading-color: #f5f5f5;
+    --link-color: #90caf9;
+    --border-color: #424242;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --menu-bg: #2c2c2c;
+    --menu-text: #e0e0e0;
+    --menu-hover-bg: #3a3a3a;
+    --menu-icon-color: #bbb;
+    --header-bg: #1e1e1e;
+    --header-text: #e0e0e0;
+    --button-bg: #333;
+    --button-hover-bg: #444;
+    --grid-dot-color: #cccccc;
+    --grid-line-color: #aaaaaa;
+    --date-text-color: #aaa;
+}
+
+/* --- General Body Styles --- */
+html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: sans-serif; line-height: 1.6;
+    /* Apply theme background color directly to body */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* Include background-color in transition */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* --- Grid Container Styling (Background) --- */
+#grid-container {
+    position: fixed;    /* Keep fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* Changed z-index from -1 to 0 */
+    z-index: 0;
+    /* background-color removed */
+}
+
+/* --- Grid Dot/Line Styling (Relative to Grid Container) --- */
+.grid-dot {
+    position: absolute; /* Relative to grid-container */
+    width: 1em;
+    height: 1em;
+    font-size: 14px;
+    color: var(--grid-dot-color); /* Use theme variable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    will-change: transform;
+    z-index: 1; /* Above lines within grid-container */
+    transition: color 0.3s ease;
+}
+
+.line {
+    position: absolute; /* Relative to grid-container */
+    height: 1px;
+    background-color: var(--grid-line-color); /* Use theme variable */
+    opacity: 0.4; /* Use fixed opacity or incorporate nodeLineOpacity if needed */
+    transform-origin: 0 0;
+    pointer-events: none; /* Prevent lines from blocking clicks */
+    will-change: transform, width, opacity;
+    z-index: 0; /* Behind dots within grid-container */
+    transition: background-color 0.3s ease;
+}
+
+
+/* --- Page Structure --- */
+.page-container {
+    display: flex; flex-direction: column; min-height: 100vh;
+    position: relative; /* Essential for stacking context */
+    z-index: 1; /* Keep this positive to be ABOVE z-index 0 grid */
+    /* No background color needed here */
+}
+
+/* --- Top Header --- */
+.top-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 20px; background-color: var(--header-bg); color: var(--header-text);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: fixed; /* Fixed position */
+    top: 0; left: 0; width: 100%;
+    z-index: 1000; /* High z-index for header */
+    height: 60px; box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.theme-controls { display: flex; align-items: center; gap: 5px; }
+.menu-toggle-btn, .theme-toggle-btn, .menu-close-btn {
+    background: none; border: none; color: inherit;
+    font-size: 1.4em; cursor: pointer; padding: 5px 8px; transition: opacity 0.3s ease;
+}
+.menu-close-btn { color: var(--menu-text); }
+.menu-toggle-btn:hover, .theme-toggle-btn:hover, .menu-close-btn:hover { opacity: 0.8; }
+.header-title { font-size: 1.2em; font-weight: bold; }
+
+/* --- Side Navigation Menu --- */
+.side-menu {
+    position: fixed; top: 0; left: 0; width: 280px; height: 100%;
+    background-color: var(--menu-bg); box-shadow: 3px 0 6px var(--shadow-color);
+    transform: translateX(-100%); transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1010; /* Highest z-index for menu */
+    display: flex; flex-direction: column; padding-top: 60px; box-sizing: border-box;
+}
+.side-menu.open { transform: translateX(0); }
+.side-menu-header {
+    display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color); position: absolute; top: 0; left: 0; width: 100%;
+    height: 60px; box-sizing: border-box; background-color: var(--menu-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.menu-title { font-size: 1.3em; font-weight: bold; color: var(--menu-text); transition: color 0.3s ease; }
+.side-menu ul { list-style: none; padding: 0; margin: 15px 0 0 0; overflow-y: auto; flex-grow: 1; }
+.side-menu li a {
+    display: flex; align-items: center; padding: 12px 20px; color: var(--menu-text);
+    text-decoration: none; font-size: 1.1em; transition: background-color 0.2s ease, color 0.2s ease;
+    border-left: 4px solid transparent;
+}
+.side-menu li a i { margin-right: 15px; color: var(--menu-icon-color); transition: color 0.3s ease; width: 20px; text-align: center; }
+.side-menu li a:hover { background-color: var(--menu-hover-bg); }
+.side-menu li a.active-link { font-weight: bold; background-color: var(--menu-hover-bg); border-left-color: var(--link-color); }
+
+/* --- Menu Overlay --- */
+.menu-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s linear;
+    z-index: 1005; /* Below menu, above content */
+}
+.menu-overlay.visible { opacity: 1; visibility: visible; transition: opacity 0.3s ease, visibility 0s 0s linear; }
+
+/* --- Main Content Area --- */
+.main-content {
+    /* Adjust padding-top to account for fixed header height */
+    padding: 80px 20px 20px 20px;
+    width: 100%; max-width: 1000px; margin: 0 auto;
+    box-sizing: border-box; flex-grow: 1;
+    position: relative; /* Relative positioning for content flow */
+    z-index: 1; /* Ensure it's above the background grid (within page-container) */
+    transition: margin-left 0.3s ease-in-out; /* For potential future use */
+}
+
+/* --- Content Card Styling --- */
+.content-card {
+    background-color: var(--content-bg-color); /* Use themed background */
+    padding: 30px 40px; border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-color); text-align: left; margin-bottom: 30px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Relative positioning */
+    z-index: 1; /* Keep above default (within main-content) */
+}
+
+/* --- Section Styling & Tab Switching --- */
+.portfolio-section { display: none; animation: fadeIn 0.5s ease-in-out; }
+.portfolio-section.active-section { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.section-title {
+    font-size: 1.8em; color: var(--heading-color); margin-bottom: 20px; padding-bottom: 5px;
+    border-bottom: 2px solid var(--border-color); text-align: left;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Content Styles (Inside Content Card) --- */
+#about .content-card { text-align: center; }
+#about .portfolio-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); transition: border-color 0.3s ease; }
+#about .profile-image { display: block; margin-left: auto; margin-right: auto; margin-bottom: 15px; }
+#about .content-card h2 { font-size: 1.8em; color: var(--heading-color); margin-bottom: 15px; padding-bottom: 5px; border-bottom: 2px solid var(--border-color); display: inline-block; transition: color 0.3s ease, border-color 0.3s ease; }
+#about .content-card p { text-align: center; color: var(--text-color); transition: color 0.3s ease; }
+.profile-image { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--content-bg-color-opaque); box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: border-color 0.3s ease; }
+.portfolio-header h1 { margin: 10px 0 5px 0; font-size: 2.5em; color: var(--heading-color); transition: color 0.3s ease; }
+.tagline { font-size: 1.1em; color: var(--text-color); font-style: italic; transition: color 0.3s ease; }
+
+/* General Headings INSIDE cards */
+.content-card h2 { font-size: 1.8em; }
+.content-card h3 { font-size: 1.5em; }
+.content-card h4 { font-size: 1.15em; }
+
+.content-card h2, .content-card h3, .content-card h4 {
+    color: var(--heading-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+/* Contact, Resume H2 */
+#contact .content-card h2, #resume .content-card h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- Experience and Internship Heading Styles --- */
+.job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; margin-bottom: 0;
+}
+#experience .content-card .job-header h3,
+#internships .content-card .job-header h3 {
+    font-size: 1.4em; margin-bottom: 0; margin-right: 10px; flex-grow: 1;
+}
+#experience .content-card .position-title,
+#internships .content-card .position-title {
+    font-size: 1.1em; font-weight: normal; margin-bottom: 15px; margin-top: 0;
+    color: var(--text-color);
+}
+#experience .content-card .date-range,
+#internships .content-card .date-range {
+    font-size: 0.95em; font-weight: normal; color: var(--date-text-color);
+    margin-left: auto; white-space: nowrap; margin-bottom: 0; padding-left: 10px;
+}
+
+/* Project H3 styling */
+#projects .content-card h3 { font-size: 1.4em; margin-bottom: 10px; }
+
+/* --- Resume Section Styling --- */
+.resume-container { margin-top: 15px; position: relative; }
+#resume-viewer {
+    display: block; width: 100%; height: 80vh;
+    border: 1px solid var(--border-color);
+    background-color: #808080; /* Fallback background */
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+#resume-viewer p { padding: 20px; text-align: center; color: var(--text-color); }
+#resume-viewer p a { color: var(--link-color); }
+
+/* Paragraphs and List Items INSIDE cards */
+.content-card p, .content-card ul, .content-card li { text-align: left; color: var(--text-color); transition: color 0.3s ease; }
+/* Exclude resume fallback paragraph from general card paragraph styling */
+#resume .content-card p { text-align: inherit; }
+.content-card ul { padding-left: 20px; margin-top: 5px; }
+.content-card li { margin-bottom: 8px; }
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { margin-bottom: 10px; font-size: 1.1em; text-align: left; }
+.contact-list strong { display: inline-block; min-width: 80px; font-weight: bold; color: var(--heading-color); transition: color 0.3s ease; padding-right: 5px; }
+.contact-list a, .resume-link { color: var(--link-color); text-decoration: none; transition: color 0.3s ease; word-break: break-all; }
+.contact-list a:hover, .resume-link:hover { text-decoration: underline; }
+footer { margin-top: 40px; padding: 15px 0; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.9em; color: var(--text-color); transition: border-color 0.3s ease, color 0.3s ease; }
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) {
+    .content-card { padding: 25px 30px; }
+    .portfolio-header h1 { font-size: 2.2em; }
+    .section-title, #contact .content-card h2, #resume .content-card h2 { font-size: 1.6em; }
+    #experience .content-card .job-header h3, #internships .content-card .job-header h3 { font-size: 1.3em; }
+    #experience .content-card .position-title, #internships .content-card .position-title { font-size: 1.05em; }
+    #experience .content-card .date-range, #internships .content-card .date-range { font-size: 0.9em; }
+}
+@media (max-width: 768px) {
+    .main-content { padding: 70px 15px 15px 15px; margin-left: 0; }
+    .side-menu { width: 250px; }
+    .content-card { padding: 20px; }
+    .portfolio-header h1 { font-size: 2em; }
+    .section-title, #contact .content-card h2, #resume .content-card h2 { font-size: 1.5em; }
+    #experience .content-card .job-header h3, #internships .content-card .job-header h3 { font-size: 1.2em; }
+    #experience .content-card .position-title, #internships .content-card .position-title { font-size: 1em; }
+    #experience .content-card .date-range, #internships .content-card .date-range { font-size: 0.85em; }
+    .profile-image { width: 120px; height: 120px; }
+    .header-title { font-size: 1em; }
+    .contact-list strong { display: block; margin-bottom: 3px; min-width: auto; }
+
+    /* Adjust job header flex for smaller screens */
+     .job-header {
+         flex-direction: column; /* Stack h3 and date */
+         align-items: flex-start; /* Align to left */
+         margin-bottom: 5px; /* Add space before position title */
+     }
+     .date-range {
+         margin-left: 0; /* Reset margin */
+         margin-top: 3px; /* Space below h3 */
+         padding-left: 0; /* Reset padding */
+     }
+     #experience .content-card .position-title,
+     #internships .content-card .position-title {
+         margin-bottom: 10px; /* Adjust space */
+     }
+
+     /* Adjust resume viewer height on mobile */
+     #resume-viewer {
+         height: 70vh; /* Adjust viewport height for mobile */
+     }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaurav Avula - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="grid-container"></div>
+
+  <div class="page-container">
+    <header class="top-header">
+      <button id="menu-toggle" class="menu-toggle-btn" aria-label="Toggle Menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <span class="header-title">Gaurav Avula Portfolio</span>
+      <div class="theme-controls">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+            <i class="fas fa-sun"></i> </button>
+      </div>
+    </header>
+
+    <nav id="side-menu" class="side-menu" aria-hidden="true">
+      <div class="side-menu-header">
+        <span class="menu-title">Portfolio</span>
+        <button id="menu-close" class="menu-close-btn" aria-label="Close Menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul>
+        <li><a href="#about" class="nav-link active-link" data-target="about"><i class="fas fa-user fa-fw"></i> About Me</a></li>
+        <li><a href="#experience" class="nav-link" data-target="experience"><i class="fas fa-briefcase fa-fw"></i> Experience</a></li>
+        <li><a href="#internships" class="nav-link" data-target="internships"><i class="fas fa-graduation-cap fa-fw"></i> Internships</a></li>
+        <li><a href="#projects" class="nav-link" data-target="projects"><i class="fas fa-code fa-fw"></i> Projects</a></li>
+        <li><a href="#contact" class="nav-link" data-target="contact"><i class="fas fa-envelope fa-fw"></i> Contact</a></li>
+        <li><a href="#resume" class="nav-link" data-target="resume"><i class="fas fa-file-alt fa-fw"></i> Resume</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="main-content">
+      <section id="about" class="portfolio-section active-section">
+         <div class="content-card">
+           <header class="portfolio-header">
+             <img src="image.png" alt="Gaurav Avula" class="profile-image"/>
+             <h1>Gaurav Avula</h1>
+             <p class="tagline">AI & Cloud Enthusiast | Full Stack Developer | Software Engineer</p>
+           </header>
+           <h2>About Me</h2>
+           <p>
+             Innovative Full Stack Developer with 6+ years of experience in designing highly scalable microservices and AI-driven applications using Spring Boot, React.js, AWS, and DevOps automation. Expertise in reducing API response times by 40%, leading teams in cloud migrations, and enhancing security with OAuth2 & JWT. Passionate about cloud-native architectures, high-performance engineering, and intelligent automation that drive business growth and user engagement.
+           </p>
+         </div>
+      </section>
+
+       <section id="experience" class="portfolio-section">
+          <h2 class="section-title">Experience</h2>
+          <div class="content-card">
+           <div class="job-header">
+             <h3>DFW Airport</h3>
+             <h4 class="date-range">(Feb 2024 – Present)</h4>
+           </div>
+           <h4 class="position-title">Full Stack Developer</h4>
+           <ul><li>Architected 10+ Spring Boot microservices, boosting operational efficiency by 30% and cutting downtime by 25%.</li><li>Developed AI-powered predictive models to forecast passenger flow and optimize staff allocation, enhancing operational efficiency by 15%.</li><li>Implemented OAuth2 and JWT for secure API authentication and authorization compliant with aviation standards.</li><li>Leveraged NLP to analyze passenger feedback and improve satisfaction by 12%.</li><li>Built responsive web apps accessible on mobile, tablets, and kiosks.</li><li>Designed management dashboards using Chart.js/D3.js in React for real-time monitoring.</li></ul>
+         </div>
+         <div class="content-card">
+           <div class="job-header">
+             <h3>OneIT UNC Charlotte</h3>
+             <h4 class="date-range">(Aug 2022 – Dec 2023)</h4>
+           </div>
+           <h4 class="position-title">Full Stack Developer</h4>
+           <ul><li>Built LabMap: React + REST-based lab computer monitoring app.</li><li>Used Selenium WebDriver for full-stack testing automation.</li><li>Reduced API response times by 40%, improving user retention by 15%.</li><li>Led frontend implementation of dashboards and stock automation flows.</li></ul>
+         </div>
+         <div class="content-card">
+           <div class="job-header">
+             <h3>Credit Suisse Group</h3>
+             <h4 class="date-range">(Aug 2020 – Aug 2022)</h4>
+           </div>
+           <h4 class="position-title">Full Stack Developer</h4>
+           <ul><li>Reduced data processing time by 66% using Java Spring batch jobs.</li><li>Built React-based customizable dashboard for report access.</li><li>Created backend job to fetch, process, and convert emails to PDF.</li><li>Ported legacy ASP.NET components to Angular 2.</li><li>Resolved log4j vulnerability across all applications.</li><li>Enhanced data sourcing through REST APIs, caching, and merging strategies.</li></ul>
+         </div>
+         <div class="content-card">
+           <div class="job-header">
+             <h3>Prosurix Inc.</h3>
+             <h4 class="date-range">(Aug 2019 – Aug 2020)</h4>
+           </div>
+           <h4 class="position-title">Software Engineer</h4>
+           <ul><li>Unified UI design across Android and iOS apps.</li><li>Implemented NFC features for Android via native APIs.</li><li>Integrated AWS Lambda and ML for image processing in Android.</li><li>Maintained platform compatibility and performance.</li></ul>
+         </div>
+      </section>
+
+       <section id="internships" class="portfolio-section">
+          <h2 class="section-title">Internships</h2>
+          <div class="content-card">
+           <div class="job-header">
+             <h3>Delta Cognition</h3>
+             <h4 class="date-range">(Nov 2024 – Present)</h4>
+            </div>
+           <h4 class="position-title">Machine Learning Intern</h4>
+           <ul><li>Deployed predictive models with Python, TensorFlow & Scikit-learn.</li><li>Wrote unit/integration tests using PyTest & Unittest.</li><li>Developed APIs for real-time model inference & IoT integration.</li><li>Worked with cross-functional teams to align ML efforts with business objectives.</li></ul>
+         </div>
+         <div class="content-card">
+           <div class="job-header">
+             <h3>Global Payments</h3>
+             <h4 class="date-range">(Jun 2023 – Aug 2023)</h4>
+            </div>
+           <h4 class="position-title">Software Developer Intern</h4>
+           <ul><li>Upgraded Spring apps with secure latest dependencies.</li><li>Enhanced API error reporting with validations and exception logging.</li><li>Built Jenkins + GitHub Actions CI/CD, cutting deployment time by 50%.</li><li>Documented REST APIs using Swagger for dev team clarity.</li></ul>
+         </div>
+      </section>
+
+       <section id="projects" class="portfolio-section">
+         <h2 class="section-title">Projects</h2>
+         <div class="content-card"><h3>WordPress Websites</h3><ul><li>Built chatbot with Python, TensorFlow, Dialogflow.</li><li>Reduced response time by 50% with intelligent query handling.</li></ul></div>
+         <div class="content-card"><h3>Visual Intelligence with OpenCV</h3><ul><li>Applied advanced image processing for edge/keypoint detection.</li><li>Built real-time object detector achieving 95% accuracy.</li></ul></div>
+         <div class="content-card"><h3>Food Truck Finder</h3><ul><li>Java + React app for real-time food truck location.</li><li>Used geo-location APIs, reduced server load by 30%.</li></ul></div>
+         <div class="content-card"><h3>Personal Budget Application</h3><ul><li>Java + Firebase budgeting app used by 200+ users.</li><li>Enabled real-time budget sync across devices; reduced overspending by 25%.</li></ul></div>
+      </section>
+
+       <section id="contact" class="portfolio-section">
+         <div class="content-card">
+           <h2>Contact</h2>
+           <p>Feel free to reach out:</p>
+           <ul class="contact-list">
+             <li><strong>Email:</strong> <a href="mailto:sudo@gauravavula.com">sudo@gauravavula.com</a></li>
+             <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/gauravavula" target="_blank">linkedin.com/in/gauravavula</a></li>
+             <li><strong>GitHub:</strong> <a href="https://github.com/gauravav" target="_blank">github.com/gauravav</a></li>
+             <li><strong>Twitter:</strong> <a href="https://twitter.com/avulagaurav" target="_blank">twitter.com/avulagaurav</a></li>
+           </ul>
+         </div>
+      </section>
+
+       <section id="resume" class="portfolio-section">
+         <div class="content-card">
+           <h2>Resume</h2>
+           
+           <div class="resume-container">
+            <iframe id="resume-viewer" src="resume.pdf#zoom=FitH" title="Gaurav Avula Resume" frameborder="0">
+              <p>Your browser does not support embedded PDFs. You can <a href="resume.pdf" target="_blank">download the PDF</a> instead.</p>
+            </iframe>
+           </div>
+           {/* --- END UPDATED RESUME SECTION --- */}
+          </div>
+       </section>
+      <footer>
+        <p>&copy; 2025 Gaurav Avula</p>
+      </footer>
+    </main>
+
+    <div id="menu-overlay" class="menu-overlay"></div>
+  </div>
+
+  <script src="lightTheme.js"></script>
+  <script src="darkTheme.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
