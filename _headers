@@ -1,0 +1,22 @@
+# Cache control for static assets
+/*.css
+  Content-Type: text/css
+  Cache-Control: public, max-age=300
+
+/*.js
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=300
+
+/*.pdf
+  Content-Type: application/pdf
+  Cache-Control: public, max-age=3600
+
+/*.png
+/*.jpg
+/*.jpeg
+  Content-Type: image/*
+  Cache-Control: public, max-age=3600
+
+# Main HTML - no cache
+/
+  Cache-Control: no-cache, no-store, must-revalidate
