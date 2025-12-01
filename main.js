@@ -221,3 +221,173 @@ document.addEventListener('DOMContentLoaded', () => {
     } else { console.error("Core theme control elements (toggle, icon, body) not found."); }
 
 }); // End DOMContentLoaded
+
+// Email function with auto-filled details
+function sendEmail(event) {
+    event.preventDefault();
+
+    // Show the location permission modal
+    const locationModal = document.getElementById('email-location-modal');
+    locationModal.classList.add('show');
+
+    // Get modal buttons
+    const yesBtn = document.getElementById('email-yes-location');
+    const noBtn = document.getElementById('email-no-location');
+    const loadingModal = document.getElementById('email-loading-modal');
+    const cancelBtn = document.getElementById('email-cancel-location');
+
+    // Remove any existing event listeners by cloning buttons
+    const newYesBtn = yesBtn.cloneNode(true);
+    const newNoBtn = noBtn.cloneNode(true);
+    const newCancelBtn = cancelBtn.cloneNode(true);
+    yesBtn.parentNode.replaceChild(newYesBtn, yesBtn);
+    noBtn.parentNode.replaceChild(newNoBtn, noBtn);
+    cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
+
+    // Timer and location request variables
+    let countdownTimer;
+    let locationReceived = false;
+
+    // Handle "Yes, Include Location"
+    newYesBtn.addEventListener('click', function() {
+        locationModal.classList.remove('show');
+        loadingModal.classList.add('show');
+
+        // Get system information
+        const systemInfo = getSystemInfo();
+
+        // Reset timer variables
+        locationReceived = false;
+        let timeLeft = 10;
+        const timerDisplay = document.getElementById('email-timer');
+
+        // Start countdown timer
+        countdownTimer = setInterval(function() {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdownTimer);
+                if (!locationReceived) {
+                    loadingModal.classList.remove('show');
+                    createMailtoLink(systemInfo, 'Location timeout - not received within 10 seconds');
+                }
+            }
+        }, 1000);
+
+        // Request location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                // Success callback
+                function(position) {
+                    if (!locationReceived) {
+                        locationReceived = true;
+                        clearInterval(countdownTimer);
+
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const location = `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`;
+
+                        loadingModal.classList.remove('show');
+                        // Reset timer display for next time
+                        timerDisplay.textContent = '10';
+                        createMailtoLink(systemInfo, location);
+                    }
+                },
+                // Error callback
+                function(error) {
+                    if (!locationReceived) {
+                        locationReceived = true;
+                        clearInterval(countdownTimer);
+                        loadingModal.classList.remove('show');
+                        // Reset timer display for next time
+                        timerDisplay.textContent = '10';
+                        createMailtoLink(systemInfo, 'Location permission denied or error occurred');
+                    }
+                },
+                {
+                    timeout: 10000,
+                    enableHighAccuracy: true
+                }
+            );
+        } else {
+            clearInterval(countdownTimer);
+            loadingModal.classList.remove('show');
+            timerDisplay.textContent = '10';
+            createMailtoLink(systemInfo, 'Geolocation not supported');
+        }
+    });
+
+    // Handle "No, Send Without Location"
+    newNoBtn.addEventListener('click', function() {
+        locationModal.classList.remove('show');
+        const systemInfo = getSystemInfo();
+        createMailtoLink(systemInfo, 'Location not included (user preference)');
+    });
+
+    // Handle "Changed My Mind" while loading
+    newCancelBtn.addEventListener('click', function() {
+        locationReceived = true;
+        clearInterval(countdownTimer);
+        loadingModal.classList.remove('show');
+        // Reset timer display for next time
+        const timerDisplay = document.getElementById('email-timer');
+        timerDisplay.textContent = '10';
+        const systemInfo = getSystemInfo();
+        createMailtoLink(systemInfo, 'Location not included (user preference)');
+    });
+}
+
+function getSystemInfo() {
+    const now = new Date();
+    const dateTime = now.toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short'
+    });
+
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const screenResolution = `${screenWidth}x${screenHeight}`;
+
+    return {
+        dateTime,
+        userAgent,
+        platform,
+        language,
+        screenResolution
+    };
+}
+
+function createMailtoLink(systemInfo, location) {
+    const email = 'sudo@gauravavula.com';
+    const subject = 'Gaurav Avula Portfolio Query';
+    const body = `Hello Gaurav,
+
+I am reaching out regarding your portfolio.
+
+---
+System Information:
+Date & Time: ${systemInfo.dateTime}
+Platform: ${systemInfo.platform}
+Browser/OS: ${systemInfo.userAgent}
+Language: ${systemInfo.language}
+Screen Resolution: ${systemInfo.screenResolution}
+Location: ${location}
+---
+
+[Please write your message here]
+
+Best regards,`;
+
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+}

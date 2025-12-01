@@ -31,8 +31,10 @@
       </div>
       <ul>
         <li><a href="#about" class="nav-link active-link" data-target="about"><i class="fas fa-user fa-fw"></i> About Me</a></li>
+        <li><a href="#education" class="nav-link" data-target="education"><i class="fas fa-graduation-cap fa-fw"></i> Education</a></li>
         <li><a href="#experience" class="nav-link" data-target="experience"><i class="fas fa-briefcase fa-fw"></i> Experience</a></li>
-        <li><a href="#internships" class="nav-link" data-target="internships"><i class="fas fa-graduation-cap fa-fw"></i> Internships</a></li>
+        <li><a href="#internships" class="nav-link" data-target="internships"><i class="fas fa-user-tie fa-fw"></i> Internships</a></li>
+        <li><a href="#skills" class="nav-link" data-target="skills"><i class="fas fa-cog fa-fw"></i> Skills</a></li>
         <li><a href="#projects" class="nav-link" data-target="projects"><i class="fas fa-code fa-fw"></i> Projects</a></li>
         <li><a href="#contact" class="nav-link" data-target="contact"><i class="fas fa-envelope fa-fw"></i> Contact</a></li>
         <li><a href="#resume" class="nav-link" data-target="resume"><i class="fas fa-file-alt fa-fw"></i> Resume</a></li>
@@ -45,12 +47,32 @@
            <header class="portfolio-header">
              <img src="image.png" alt="Gaurav Avula" class="profile-image"/>
              <h1>Gaurav Avula</h1>
-             <p class="tagline">AI & Cloud Enthusiast | Full Stack Developer | Software Engineer</p>
+             <p class="tagline">Software Developer | Backend Systems | Distributed Architecture</p>
            </header>
            <h2>About Me</h2>
            <p>
-             Innovative Full Stack Developer with 6+ years of experience in designing highly scalable microservices and AI-driven applications using Spring Boot, React.js, AWS, and DevOps automation. Expertise in reducing API response times by 40%, leading teams in cloud migrations, and enhancing security with OAuth2 & JWT. Passionate about cloud-native architectures, high-performance engineering, and intelligent automation that drive business growth and user engagement.
+             Software Developer with 6 years of experience designing and building high-performance distributed systems and RESTful APIs using Java, Python, Spring Boot, and Go. Proven expertise in optimizing API performance by 40%, architecting scalable microservices, implementing machine learning integrations, and managing distributed data processing pipelines across cloud infrastructure.
            </p>
+         </div>
+      </section>
+
+       <section id="education" class="portfolio-section">
+         <h2 class="section-title">Education</h2>
+         <div class="content-card">
+           <div class="job-header">
+             <h3>University of North Carolina Charlotte</h3>
+             <h4 class="date-range">(Aug 2022 – Dec 2023)</h4>
+           </div>
+           <h4 class="position-title">MS in Computer Science</h4>
+           <p><strong>Coursework:</strong> Algorithm and Data Structures, Cloud Computing for Data Analysis, Software System Design and Implementation, Computer Communication and Networks, Network Based Application Development, Mobile Application Development, Visual Analytics, Intelligent Systems</p>
+         </div>
+         <div class="content-card">
+           <div class="job-header">
+             <h3>University at Buffalo</h3>
+             <h4 class="date-range">(Jan 2015 – May 2019)</h4>
+           </div>
+           <h4 class="position-title">BS in Computer Engineering</h4>
+           <p><strong>Coursework:</strong> Algorithms for Modern Computing Systems, Operating Systems, Data Structures, Software Engineering Concepts, Computer Vision and Image Processing, Data Intensive Computing, Real Time Embedded Systems, Hardware and Software Integration</p>
          </div>
       </section>
 
@@ -59,54 +81,128 @@
           <div class="content-card">
            <div class="job-header">
              <h3>Delta Cognition</h3>
-             <h4 class="date-range">(Feb 2024 – Present)</h4>
+             <h4 class="date-range">(Feb 2024 – Current)</h4>
            </div>
-           <h4 class="position-title">Full Stack Developer</h4>
-           <ul><li>Architected 10+ Spring Boot microservices, boosting operational efficiency by 30% and cutting downtime by 25%.</li><li>Developed AI-powered predictive models to forecast passenger flow and optimize staff allocation, enhancing operational efficiency by 15%.</li><li>Implemented OAuth2 and JWT for secure API authentication and authorization compliant with aviation standards.</li><li>Leveraged NLP to analyze passenger feedback and improve satisfaction by 12%.</li><li>Built responsive web apps accessible on mobile, tablets, and kiosks.</li><li>Designed management dashboards using Chart.js/D3.js in React for real-time monitoring.</li></ul>
+           <h4 class="position-title">Software Developer – Remote</h4>
+           <ul>
+             <li>Architected and deployed scalable microservices in Go and Python for an LLM-powered interview platform, handling 10K+ concurrent requests with load balancing and horizontal scaling.</li>
+             <li>Designed RESTful APIs with comprehensive endpoint documentation, implementing rate limiting, caching strategies (Redis), and request validation to ensure system reliability and performance.</li>
+             <li>Optimized API response times by 45% through database query optimization, connection pooling, and implementing asynchronous processing for long-running tasks.</li>
+             <li>Built distributed batch processing systems using Python and Celery for asynchronous task execution, processing 100K+ jobs daily with fault tolerance and retry mechanisms.</li>
+             <li>Implemented OAuth2 and JWT-based authentication systems with refresh token rotation and session management, securing API endpoints across multiple microservices.</li>
+             <li>Developed NLP pipelines using Python (SpaCy, Transformers) integrated with backend services to process and analyze unstructured data at scale.</li>
+           </ul>
          </div>
          <div class="content-card">
            <div class="job-header">
              <h3>OneIT UNC Charlotte</h3>
              <h4 class="date-range">(Aug 2022 – Dec 2023)</h4>
            </div>
-           <h4 class="position-title">Full Stack Developer</h4>
-           <ul><li>Built LabMap: React + REST-based lab computer monitoring app.</li><li>Used Selenium WebDriver for full-stack testing automation.</li><li>Reduced API response times by 40%, improving user retention by 15%.</li><li>Led frontend implementation of dashboards and stock automation flows.</li></ul>
+           <h4 class="position-title">Application Developer – Charlotte, NC</h4>
+           <ul>
+             <li>Developed Python automation scripts and Java Spring Boot services for inventory management, implementing scheduled batch jobs with error handling and monitoring.</li>
+             <li>Built high-performance RESTful APIs using Spring Boot with PostgreSQL, implementing database indexing, query optimization, and caching to handle 5K+ requests per minute.</li>
+             <li>Architected microservices for real-time data synchronization across multiple systems, using message queues (RabbitMQ) for asynchronous communication and event-driven architecture.</li>
+             <li>Optimized API endpoint performance by 40% (from 3s to 1.8s) through implementing connection pooling, lazy loading, and reducing N+1 query problems.</li>
+             <li>Implemented comprehensive API testing using Python (PyTest), JUnit, and integration tests, achieving 85% code coverage across all backend services.</li>
+             <li>Designed database schema optimizations and implemented data partitioning strategies to improve query performance for large datasets (10M+ records).</li>
+           </ul>
          </div>
          <div class="content-card">
            <div class="job-header">
              <h3>Credit Suisse Group</h3>
              <h4 class="date-range">(Aug 2020 – Aug 2022)</h4>
            </div>
-           <h4 class="position-title">Full Stack Developer</h4>
-           <ul><li>Reduced data processing time by 66% using Java Spring batch jobs.</li><li>Built React-based customizable dashboard for report access.</li><li>Created backend job to fetch, process, and convert emails to PDF.</li><li>Ported legacy ASP.NET components to Angular 2.</li><li>Resolved log4j vulnerability across all applications.</li><li>Enhanced data sourcing through REST APIs, caching, and merging strategies.</li></ul>
+           <h4 class="position-title">Software Developer – Raleigh, NC</h4>
+           <ul>
+             <li>Engineered high-performance batch processing systems in Java Spring Boot with multithreading and parallel processing, reducing data processing time from 6 hours to 2 hours for 50M+ records.</li>
+             <li>Designed and implemented RESTful APIs in Java Spring Boot serving 15K+ requests per minute, with comprehensive error handling, input validation, and structured logging.</li>
+             <li>Optimized database performance through advanced query optimization, proper indexing strategies, and connection pool tuning, reducing query execution time by 65%.</li>
+             <li>Built distributed data processing pipelines using Apache Kafka for real-time event streaming, processing 1M+ messages daily with guaranteed delivery and fault tolerance.</li>
+             <li>Implemented efficient data merging and deduplication algorithms in Python, reducing data consolidation time by 50% while maintaining data integrity across multiple source systems.</li>
+             <li>Addressed critical security vulnerabilities (log4j) by systematically updating dependencies, refactoring legacy code, and implementing automated security scanning in CI/CD pipelines.</li>
+             <li>Implemented caching strategies using Redis to reduce database load by 40%, improving API response times and system scalability.</li>
+           </ul>
          </div>
          <div class="content-card">
            <div class="job-header">
              <h3>Prosurix Inc.</h3>
              <h4 class="date-range">(Aug 2019 – Aug 2020)</h4>
            </div>
-           <h4 class="position-title">Software Engineer</h4>
-           <ul><li>Unified UI design across Android and iOS apps.</li><li>Implemented NFC features for Android via native APIs.</li><li>Integrated AWS Lambda and ML for image processing in Android.</li><li>Maintained platform compatibility and performance.</li></ul>
+           <h4 class="position-title">Software Developer – Buffalo, NY</h4>
+           <ul>
+             <li>Developed backend services in Python and Java for mobile applications, implementing RESTful APIs for data synchronization and user management.</li>
+             <li>Built Android application features including NFC integration using Android SDK and Java, enabling contactless data exchange functionality.</li>
+             <li>Implemented AWS Lambda functions in Python for serverless image processing, integrating TensorFlow and OpenCV for image recognition and classification tasks.</li>
+             <li>Developed machine learning pipelines for training and deploying image recognition models, storing processed data and model artifacts in AWS S3 with DynamoDB for metadata management.</li>
+             <li>Created automated data processing workflows using Python to handle user-generated content, perform ML inference, and store results for real-time retrieval.</li>
+           </ul>
          </div>
       </section>
 
        <section id="internships" class="portfolio-section">
           <h2 class="section-title">Internships</h2>
-          <div class="content-card">
-           <div class="job-header">
-             <h3>Delta Cognition</h3>
-             <h4 class="date-range">(Nov 2024 – Present)</h4>
-            </div>
-           <h4 class="position-title">Machine Learning Intern</h4>
-           <ul><li>Deployed predictive models with Python, TensorFlow & Scikit-learn.</li><li>Wrote unit/integration tests using PyTest & Unittest.</li><li>Developed APIs for real-time model inference & IoT integration.</li><li>Worked with cross-functional teams to align ML efforts with business objectives.</li></ul>
-         </div>
          <div class="content-card">
            <div class="job-header">
              <h3>Global Payments</h3>
              <h4 class="date-range">(Jun 2023 – Aug 2023)</h4>
             </div>
-           <h4 class="position-title">Software Developer Intern</h4>
-           <ul><li>Upgraded Spring apps with secure latest dependencies.</li><li>Enhanced API error reporting with validations and exception logging.</li><li>Built Jenkins + GitHub Actions CI/CD, cutting deployment time by 50%.</li><li>Documented REST APIs using Swagger for dev team clarity.</li></ul>
+           <h4 class="position-title">Software Developer Intern – Atlanta, GA</h4>
+           <ul>
+             <li>Upgraded critical dependencies across Spring Boot applications, refactoring code to use latest secure versions and implementing automated dependency scanning.</li>
+             <li>Enhanced REST API robustness by implementing comprehensive error handling, input validation, exception logging, and detailed error response formatting in Java Spring Boot.</li>
+             <li>Configured CI/CD pipelines using Jenkins and GitHub Actions for automated testing, building, and deployment of Java applications, reducing deployment time by 20%.</li>
+             <li>Implemented API documentation using Swagger/OpenAPI specifications, creating comprehensive documentation for all REST endpoints with request/response examples.</li>
+             <li>Developed unit and integration tests using JUnit and Mockito to ensure code quality and maintain high test coverage across backend services.</li>
+           </ul>
+         </div>
+      </section>
+
+       <section id="skills" class="portfolio-section">
+         <h2 class="section-title">Skills & Technologies</h2>
+         <div class="content-card">
+           <h3>Languages</h3>
+           <p>Python, Java, Go, SQL, Shell Scripting, JavaScript (basic)</p>
+         </div>
+         <div class="content-card">
+           <h3>Backend</h3>
+           <p>Spring Boot, Flask, FastAPI, Node.js (basic), RESTful APIs, GraphQL</p>
+         </div>
+         <div class="content-card">
+           <h3>Databases</h3>
+           <p>PostgreSQL, MySQL, MongoDB, DynamoDB, Oracle</p>
+         </div>
+         <div class="content-card">
+           <h3>Search</h3>
+           <p>Apache Lucene, Elasticsearch, FAISS</p>
+         </div>
+         <div class="content-card">
+           <h3>Machine Learning</h3>
+           <p>TensorFlow, PyTorch, Scikit-learn, OpenCV, NLP (NLTK, SpaCy, Transformers), Pandas, NumPy</p>
+         </div>
+         <div class="content-card">
+           <h3>LLM Integration</h3>
+           <p>OpenAI API, Anthropic Claude API, Hugging Face, LangChain, Prompt Engineering</p>
+         </div>
+         <div class="content-card">
+           <h3>Cloud</h3>
+           <p>AWS (Lambda, EC2, S3, DynamoDB, API Gateway, SageMaker), Azure (basic)</p>
+         </div>
+         <div class="content-card">
+           <h3>DevOps</h3>
+           <p>Docker, Kubernetes, Jenkins, GitHub Actions, Terraform, CI/CD</p>
+         </div>
+         <div class="content-card">
+           <h3>Testing</h3>
+           <p>JUnit, PyTest, Mockito, Selenium, Unittest, Postman</p>
+         </div>
+         <div class="content-card">
+           <h3>Tools</h3>
+           <p>Git, GitHub, IntelliJ IDEA, PyCharm, VS Code, Swagger, Jupyter</p>
+         </div>
+         <div class="content-card">
+           <h3>Mobile</h3>
+           <p>Android SDK (basic), Java for Android</p>
          </div>
       </section>
 
@@ -123,11 +219,23 @@
            <h2>Contact</h2>
            <p>Feel free to reach out:</p>
            <ul class="contact-list">
-             <li><strong>Email:</strong> <a href="mailto:sudo@gauravavula.com">sudo@gauravavula.com</a></li>
+             <li><strong>Location:</strong> <a href="https://maps.google.com/?q=Irving,TX,USA" target="_blank">Irving, TX, USA</a></li>
+             <li><strong>Email:</strong> <a href="#" id="email-link" onclick="sendEmail(event)">sudo@gauravavula.com</a></li>
              <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/gauravavula" target="_blank">linkedin.com/in/gauravavula</a></li>
              <li><strong>GitHub:</strong> <a href="https://github.com/gauravav" target="_blank">github.com/gauravav</a></li>
-             <li><strong>Twitter:</strong> <a href="https://twitter.com/avulagaurav" target="_blank">twitter.com/avulagaurav</a></li>
            </ul>
+
+           <div class="map-container">
+             <iframe
+               src="https://maps.google.com/maps?q=Irving,TX,USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
+               width="100%"
+               height="400"
+               style="border:0; border-radius: 8px; margin-top: 20px;"
+               allowfullscreen=""
+               loading="lazy"
+               referrerpolicy="no-referrer-when-downgrade">
+             </iframe>
+           </div>
          </div>
       </section>
 
@@ -149,6 +257,32 @@
     </main>
 
     <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Email Location Modal -->
+    <div id="email-location-modal" class="email-modal">
+      <div class="email-modal-content">
+        <h3>Include Location Information?</h3>
+        <p>Would you like to include your location information in the email?</p>
+        <div class="email-modal-buttons">
+          <button id="email-yes-location" class="email-btn email-btn-primary">Yes, Include Location</button>
+          <button id="email-no-location" class="email-btn email-btn-secondary">No, Send Without Location</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Loading Modal -->
+    <div id="email-loading-modal" class="email-modal">
+      <div class="email-modal-content">
+        <h3>Getting Your Location...</h3>
+        <p>Please allow location access in your browser.</p>
+        <div class="email-loading-spinner"></div>
+        <p class="email-timer-text">Time remaining: <span id="email-timer" class="email-timer-count">10</span> seconds</p>
+        <p class="email-timer-subtext">Email will be sent automatically if location is not received.</p>
+        <div class="email-modal-buttons">
+          <button id="email-cancel-location" class="email-btn email-btn-secondary">Changed My Mind - Send Without Location</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="lightTheme.js"></script>
